@@ -1,3 +1,7 @@
+let playerSelection;
+let computerSelection;
+console.log(playRound(playerSelection, computerSelection));
+
 function getComputerChoice(){
     let textArray = ["rock", "scissors", "paper"];
     let randomIndex = Math.floor(Math.random() * textArray.length); 
@@ -6,8 +10,17 @@ function getComputerChoice(){
     return randomElement;
 }
 
+function game(playerSelection, computerSelection){
+    for(let i=1; i<=5; i++){
+        playerSelection = prompt();
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+        
+}
+
 function playRound(playerSelection, computerSelection){
-    //playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
     if(playerSelection == "rock" && computerSelection == "paper"){
         return "You Lose! Paper beats rock";
     }
@@ -29,7 +42,6 @@ function playRound(playerSelection, computerSelection){
         return "You Lose! Scissors beats paper";
     }
         
-        
     else if(playerSelection === computerSelection){
         return "Tie!"
     }
@@ -37,6 +49,5 @@ function playRound(playerSelection, computerSelection){
         
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+
